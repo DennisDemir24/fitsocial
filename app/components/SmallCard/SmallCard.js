@@ -5,6 +5,7 @@ import styled from 'styled-components/native'
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
 
+
 const WorkoutCard = styled(Card)`
     background-color: #1E2126;
     margin-bottom: 10px;
@@ -52,6 +53,44 @@ const SmallCard = ({workout}) => {
         image = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
         level = "Beginner",
     } = workout;
+
+
+    const renderIcons = () => {
+        if (level === "Intermediate") {
+            return(
+                [1,2].map((i) => {
+                    return (
+                        <IconContainer key={i}>
+                            <AntDesign name="star" size={12} color="#FF5722" />
+                        </IconContainer>
+                    )
+                })
+            )
+    
+        } else if (level === "Hard") {
+            return(
+                [1,2,3].map((i) => {
+                    return (
+                        <IconContainer key={i}>
+                            <AntDesign name="star" size={12} color="#FF5722" />
+                        </IconContainer>
+                    )
+                })
+            )
+        } else {
+            return(
+                [1].map((i) => {
+                    return (
+                        <IconContainer key={i}>
+                            <AntDesign name="star" size={12} color="#FF5722" />
+                        </IconContainer>
+                    )
+                })
+            )
+        }
+    }
+
+
   return (
     <WorkoutCard>
         <WorkoutCover key={name} source={{uri: image}} />
@@ -59,10 +98,7 @@ const SmallCard = ({workout}) => {
             <CardTitle>{name}</CardTitle>
             <CardSubTitle>{description}</CardSubTitle>
             <LevelContainer>
-                <IconContainer>
-                <AntDesign name="star" size={12} color="#FF5722" />
-
-                </IconContainer>
+                {renderIcons()}
                 <Level>{level}</Level>
             </LevelContainer>
         </CardInfo>
