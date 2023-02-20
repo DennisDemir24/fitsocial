@@ -46,13 +46,15 @@ const IconContainer = styled.View`
     padding-top: 2px;
 `
 
-const SmallCard = ({workout}) => {
+const SmallCard = ({workout = {}}) => {
     const {
-        name = "Push Day",
-        description = "Chest/Shoulders/Triceps",
+        id,
+        name,
+        description,
         image = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-        level = "Beginner",
-    } = workout;
+        level,
+        day
+    } = workout.item;
 
 
     const renderIcons = () => {
@@ -93,7 +95,7 @@ const SmallCard = ({workout}) => {
 
   return (
     <WorkoutCard>
-        <WorkoutCover key={name} source={{uri: image}} />
+        <WorkoutCover key={id} source={{uri: image}} />
         <CardInfo>
             <CardTitle>{name}</CardTitle>
             <CardSubTitle>{description}</CardSubTitle>

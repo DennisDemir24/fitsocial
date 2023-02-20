@@ -1,9 +1,9 @@
 import { FlatList, Text, Pressable } from 'react-native'
 import React, {useState} from 'react'
-import { SafeArea } from '../components/utils/safe-area.components'
-import { SmallCard } from '../components'
+import { SafeArea } from '../../components/utils/safe-area.components'
+import { SmallCard } from '../../components'
 import styled from 'styled-components/native'
-import { DATA } from '../mock'
+import { DATA } from '../../mock'
 
 const ViewContainer = styled.View`
     flex: 1;
